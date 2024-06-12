@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myWeb</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</head>
+<body>
+    <header>
+        <div class="content">
+            <div class="left-div-content">
+                <i class="fas fa-bars icon" id="btn"></i>
+                <h1>myWeb</h1>
+            </div>
+
+            <!-- Search bar -->
+            <div class="search-bar">
+                <i class="fas fa-search icon" id="search-icon"></i>
+                <input type="text" placeholder="Search..." id="search-input">
+                <i class="fas fa-times icon" id="clear-icon"></i>
+            </div>
+
+            <div class="right-div-content">
+                <!-- Toggle button with dropdown menu -->
+                <div class="dropdown">
+                    <i class="fas fa-cog icon"></i>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <!-- Options for light mode, dark mode, and custom color -->
+                        <a href="#" onclick="setTheme('light')">Light Mode</a>
+                        <a href="#" onclick="setTheme('dark')">Dark Mode</a>
+                        <a href="#" onclick="showColorPicker()">Choose Color</a>
+                    </div>
+                </div>
+
+                <!-- Color picker inputs -->
+                <input type="color" id="color-picker" style="display: none;">
+                <input type="color" id="text-color-picker" style="display: none;">
+
+                
+                <a href="login.html"><button class="btnLogin-popup">Login</button></a>
+                <a href="home.html"><a href="#catalogue"></a> </a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <span>myWeb</span>
+                </div>
+                <ion-icon name="close" id="close"></ion-icon>
+            </div>
+            <div class="user">
+                <img src="photo1.jpg" alt="no" class="user-img">
+                <p class="bold">Otieno Bonface</p>
+                <p>Admin</p>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="bx bxs-grid-alt"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bx-location-plus"></i>
+                        <span class="nav-item">Supermarket</span>
+                    </a>
+                    <span class="tooltip">Supermarket</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bxs-shopping-bag"></i>
+                        <span class="nav-item">Products</span>
+                    </a>
+                    <span class="tooltip">Products</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bx-list-check"></i>
+                        <span class="nav-item">Categories</span>
+                    </a>
+                    <span class="tooltip">Categories</span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="bx bx-body"></i>
+                        <span class="nav-item">Customers</span>
+                    </a>
+                    <span class="tooltip">Customers</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bx-location-plus"></i>
+                        <span class="nav-item">Shipping</span>
+                    </a>
+                    <span class="tooltip">Shipping</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bx-cog"></i>
+                        <span class="nav-item">Settings</span>
+                    </a>
+                    <span class="tooltip">Settings</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <span class="tooltip">Logout</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="div-main-content">
+            
+            <nav>
+                <a href="home.html">HOME</a>
+                <a href="about.html">ABOUT US</a>
+                <a href="catalogue.html" id="catalogue-link">CATALOGUE</a>
+                <a href="contact.html">CONTACT US</a>
+                <a href="categories.html">CATEGORIES</a>
+                
+            </nav>
+            <hr/>
+            <p class="navigate">To navigate and know your position or place before l could know which supermarket is next to you, please click the link below</p>
+           <button id="place">Click me to know my place</button>
+            <p class="search">Search for a product in the search bar menu and see the prices from different supermarkets display in the space below.</p>
+            <div class="search-panel">
+                
+            </div>
+
+         <div id="catalogue-section" style="display: none;">
+            <h2>Product Catalogue</h2>
+            <ul id="product-list"></ul>
+        </div>
+        <div class="footer">odhiambobonface204@gmail.com &copy; copyright 2024</div>
+        </div>
+
+        <div class="div-right-content"></div>
+        <div id="map"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+
+        btn.onclick = function (){
+            sidebar.classList.toggle('active');
+        };
+    </script>
+
+</body>
+</html>
