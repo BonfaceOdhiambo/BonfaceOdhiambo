@@ -1,0 +1,103 @@
+[
+    {
+        "name": "Nakumatt",
+        "info": "Nakumatt is one of the largest supermarket chains in Kenya, known for its wide range of products."
+    },
+    {
+        "name": "Tuskys",
+        "info": "Tuskys is a popular Kenyan supermarket chain offering groceries, electronics, and more."
+    },
+    {
+        "name": "Naivas",
+        "info": "Naivas is a leading retailer in Kenya, providing a variety of products including fresh produce, household items, and electronics."
+    },
+    {
+        "name": "Quickmat",
+        "info": "Tuskys is a popular Kenyan supermarket chain offering groceries, electronics, and more."
+    },
+    {
+        "name": "Khetias",
+        "info": "Tuskys is a popular Kenyan supermarket chain offering groceries, electronics, and more."
+    },
+    {
+        "name": "Tumaini",
+        "info": "Tuskys is a popular Kenyan supermarket chain offering groceries, electronics, and more."
+    },
+    {
+        "name": "Chandarana Foodplus",
+        "info": "Chandarana Foodplus is one of Kenya's oldest supermarket chains, known for its extensive range of groceries and fresh produce.",
+        " They focus on providing quality products at competitive prices. " :
+         "They offer a variety of local and imported products, including fresh foods, household items, and specialty goods."
+    },
+    {
+       "name": "Carrefour Kenya",
+       "Overview": "Carrefour, a French multinational retailer, operates hypermarkets and supermarkets in Kenya ,It is renowned for its wide selection of products and competitive pricing.",
+        "Features":"Carrefour stores provide groceries, electronics, home appliances, and apparel, along with strong customer service."
+    },
+ {
+     "name": "Naivas:",
+
+       "Overview": "Naivas is one of Kenya's largest supermarket chains, known for its wide variety of products and convenient locations.",
+       "Features": "They offer groceries, fresh produce, electronics, and household items. Naivas is popular for its frequent promotions and loyalty programs."
+ },
+ {
+     "name":  "Quickmart",
+
+     "Overview": "Quickmart is a rapidly growing supermarket chain in Kenya, recognized for its convenience and customer-focused approach.",
+      "Features": "They provide groceries, fresh produce, baked goods, and household items. Quickmart stores are often located in residential areas for easy access."
+ },
+    {
+        "name": "Eastmatt",
+
+     "Overview": "Eastmatt is a Kenyan supermarket chain that provides a range of affordable products to local communities.",
+      "Features": "They offer groceries, fresh produce, electronics, and household items, with a focus on customer satisfaction and value for money."
+    },
+
+    {
+        "name":"Cleanshelf Supermarket",
+
+    "Overview": "Cleanshelf Supermarket is known for its budget-friendly prices and wide range of products, including groceries and household items.",
+     "Features": "They focus on providing quality products at affordable prices, catering to the needs of budget-conscious shoppers."
+    },
+    {
+        "name":"Khetia’s Supermarket",
+         "Overview": "Khetia’s Supermarket is a well-known retail chain in Kenya, offering a variety of groceries and household products.",
+         "Features": "They provide groceries, fresh produce, electronics, and household goods, emphasizing quality and affordability."
+    },
+    {
+        "name":"Choppies",
+         "Overview":"Choppies is a multinational grocery and general merchandise retailer headquartered in Botswana, with a presence in Kenya.",
+         "Features": "Choppies stores offer a wide range of products, including groceries, fresh produce, clothing, and household items."
+    },
+    {
+        "name":"Nakumatt",
+       "Overview": "Nakumatt was once Kenya's largest supermarket chain, known for its extensive range of products and services.",
+       "Features": "They offered groceries, electronics, clothing, furniture, and more. However Nakumatt faced financial difficulties and eventually closed most of its stores."
+    },
+    {
+        "name":"Tumaini",
+      "Overview": "Tumaini is a local supermarket chain in Kenya, known for its affordable pricing and variety of products.",
+      "Features": "They provide groceries, fresh produce, household items, and more, catering primarily to local communities."
+    },
+    {
+      "name":"Frankmatt",  
+    "Overview": "Frankmatt is a Kenyan supermarket chain offering a range of groceries and household products at competitive prices.",
+    "Features": "They focus on providing essential goods, fresh produce, and household items, with an emphasis on customer satisfaction."
+    },
+{
+    "name":"Tulin",
+     "Overview": "Tulin is a relatively lesser-known supermarket in Kenya, offering a selection of groceries and household products.",
+    "Features": "They provide basic groceries, fresh produce, and essential household items, focusing on local community needs."
+},
+{
+    "name":"Peshmatt",
+    "Overview": "Peshmatt is a local supermarket chain in Kenya, known for its affordability and range of everyday products.",
+     "Features": "They offer groceries, fresh produce, and household goods, targeting budget-conscious consumers."
+}
+]
+    
+    
+
+
+
+

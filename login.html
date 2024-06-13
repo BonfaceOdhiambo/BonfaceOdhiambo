@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form id="loginForm" method="POST">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" id="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" id="password" required>
+                    <label>Password</label>
+                    <small id="passwordHelp" class="form-text text-muted">Password must be at least 8 characters long, include uppercase, lowercase, and a special character.</small>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div id="loginFeedback"></div>
+                <div class="login-register">
+                    <p>Don't have an account yet? <a href="#" class="register-link">Register</a> here</p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form id="registerForm" method="POST">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" id="regUsername" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" id="regEmail" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" id="regPassword" required>
+                    <label>Password</label>
+                    <small id="regPasswordHelp" class="form-text text-muted">Password must be at least 8 characters long, include uppercase, lowercase, and a special character.</small>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">I agree to the terms & conditions</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div id="registerFeedback"></div>
+                <div class="login-register">
+                    <p>Already have an account? <a href="#" class="login-link">Login</a> here</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            if (savedBgColor) document.body.style.backgroundColor = savedBgColor;
+            if (savedTextColor) document.body.style.color = savedTextColor;
+
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                if (validatePassword(password, 'passwordHelp')) {
+                    loginUser(email, password);
+                }
+            });
+
+            document.getElementById('registerForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const username = document.getElementById('regUsername').value;
+                const email = document.getElementById('regEmail').value;
+                const password = document.getElementById('regPassword').value;
+                if (validatePassword(password, 'regPasswordHelp')) {
+                    registerUser(username, email, password);
+                }
+            });
+
+            // Real-time password validation
+            document.getElementById('password').addEventListener('input', function() {
+                validatePassword(this.value, 'passwordHelp');
+            });
+            document.getElementById('regPassword').addEventListener('input', function() {
+                validatePassword(this.value, 'regPasswordHelp');
+            });
+        });
+
+        function validatePassword(password, helpElementId) {
+            const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+            const helpElement = document.getElementById(helpElementId);
+            if (!pattern.test(password)) {
+                helpElement.style.color = 'red';
+                return false;
+            } else {
+                helpElement.style.color = 'green';
+                return true;
+            }
+        }
+
+        function showLoadingFeedback(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="loading">${message}</div>`;
+        }
+
+        function hideLoadingFeedback(elementId) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = '';
+        }
+
+        function loginUser(email, password) {
+            showLoadingFeedback('loginFeedback', 'Logging in...');
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'login.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    hideLoadingFeedback('loginFeedback');
+                    const response = xhr.responseText;
+                    if (response === "Login successful") {
+                        window.location.href = "nextPage.html";
+                    } else {
+                        alert(response);
+                    }
+                }
+            };
+            xhr.send(`email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
+        }
+
+        function registerUser(username, email, password) {
+            showLoadingFeedback('registerFeedback', 'Registering...');
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'register.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    hideLoadingFeedback('registerFeedback');
+                    const response = xhr.responseText;
+                    if (response === "Registration successful") {
+                        window.location.href = "nextPage.html";
+                    } else {
+                        alert(response);
+                    }
+                }
+            };
+            xhr.send(`username=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

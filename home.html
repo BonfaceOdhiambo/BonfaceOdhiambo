@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="supermarket-list">
+        <h2>Navigate through some of the Suppermarkets</h2>                
+        <a href="#">Naivas Supermarket:</a>
+        <div class="naivas">
+            <img src="" alt="">
+            <span>
+                <h5>About Naivas</h5>
+                <p>Naivas Supermarket is a homegrown Kenyan supermarket chain that has been in operation for over 30 years. At the core of our operations is the drive to continuously meet and exceed the customer's needs, enabling us to provide better services.
+                    sLiving the business mantra, “We exist to make other people’s lives better,” Naivas is more than just a retail store – we complement the lifestyles of those who seek our service
+                </p>
+            </span>
+        </div>
+        <a href="#">Khetias Supermarket:</a>
+        <div class="Khetias">
+            <img src="" alt="">
+            <span>About Khetias</span>
+        </div>
+        <a href="#">Tumaini Supermarket:</a>
+        <div class="Tumaini">
+            <img src="" alt="">
+            <span>About Tumaini</span>
+        </div>
+        <a href="#">Quickmat Supermarket:</a>
+        <div class="Quickmat">
+            <img src="" alt="">
+            <span>About Quickmat</span>
+            
+        </div>
+        <a href="#">Nakumatt Supermarket:</a>
+        <div class="Nakumatt">
+            <img src="" alt="">
+            <span>About Nakumatt</span>
+        </div>
+    </div>
+    
+   
+</div>
+<div class="footer">odhiambobonface204@gmail.com &copy; copyright 2024</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    // Load saved colors from localStorage
+    const savedBgColor = localStorage.getItem('bgColor');
+    const savedTextColor = localStorage.getItem('textColor');
+    if (savedBgColor) {
+        document.body.style.backgroundColor = savedBgColor;
+    }
+    if (savedTextColor) {
+        document.body.style.color = savedTextColor;
+        updateLinkColors(savedTextColor);
+    }
+});
+
+// Function to update the color of the links
+function updateLinkColors(color) {
+    const links = document.querySelectorAll('.div-main-content nav a');
+    links.forEach(link => {
+        link.style.color = color;
+    });
+}
+
+    </script>
+</body>
+</html>

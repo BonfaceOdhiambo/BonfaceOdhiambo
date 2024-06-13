@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>catalogue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+
+
+    <div class="footer">odhiambobonface204@gmail.com &copy; copyright 2024</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    // Load saved colors from localStorage
+    const savedBgColor = localStorage.getItem('bgColor');
+    const savedTextColor = localStorage.getItem('textColor');
+    if (savedBgColor) {
+        document.body.style.backgroundColor = savedBgColor;
+    }
+    if (savedTextColor) {
+        document.body.style.color = savedTextColor;
+        updateLinkColors(savedTextColor);
+    }
+});
+
+// Function to update the color of the links
+function updateLinkColors(color) {
+    const links = document.querySelectorAll('.div-main-content nav a');
+    links.forEach(link => {
+        link.style.color = color;
+    });
+}
+
+    </script>
+</body>
+</html>

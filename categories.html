@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="content">
+            <div class="left-div-content">
+                <i class="fas fa-bars icon" id="btn"></i>
+                <h1>myWeb</h1>
+            </div>
+            <div class="right-div-content">
+                <a href="index.html"><button class="btnHome-popup">Home</button></a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="div-main-content">
+            <div id="supermarkets-section">
+                <h2>Supermarkets in Kenya</h2>
+                <ul id="supermarket-list"></ul>
+            </div>
+            <div class="footer">odhiambobonface204@gmail.com &copy; copyright 2024</div>
+        </div>
+    </div>
+
+    <script>
+        // URL of the online API
+        const onlineApiUrl = 'https://api.example.com/supermarkets';
+
+        // Function to fetch and display supermarkets
+        async function fetchSupermarkets() {
+            let supermarketsData = [];
+            
+            try {
+                // Try fetching from local JSON file
+                const localResponse = await fetch('supermarkets.json');
+                if (!localResponse.ok) {
+                    throw new Error('Local file not found');
+                }
+                supermarketsData = await localResponse.json();
+                console.log('Fetched from local JSON file');
+            } catch (error) {
+                console.log('Failed to fetch from local JSON, trying online API', error);
+                
+                try {
+                    // If local fetch fails, try fetching from online API
+                    const onlineResponse = await fetch(onlineApiUrl);
+                    if (!onlineResponse.ok) {
+                        throw new Error('Online API not available');
+                    }
+                    supermarketsData = await onlineResponse.json();
+                    console.log('Fetched from online API');
+                } catch (error) {
+                    console.error('Failed to fetch from online API', error);
+                    // Handle error: display message to user
+                    const supermarketList = document.getElementById('supermarket-list');
+                    supermarketList.innerHTML = '<li>Unable to fetch supermarket data at this time.</li>';
+                    return;
+                }
+            }
+
+            // Display the fetched data
+            const supermarketList = document.getElementById('supermarket-list');
+            supermarketList.innerHTML = ''; // Clear previous results
+
+            supermarketsData.forEach(supermarket => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${supermarket.name}</strong>: ${supermarket.info}`;
+                supermarketList.appendChild(li);
+            });
+        }
+
+        // Call the function to fetch and display supermarkets on page load
+        document.addEventListener('DOMContentLoaded', fetchSupermarkets);
+    </script>
+</body>
+</html>
+
+
+
+
+    
+
+
+
+
+
+
+    
+    <div class="footer">odhiambobonface204@gmail.com &copy; copyright 2024</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    // Load saved colors from localStorage
+    const savedBgColor = localStorage.getItem('bgColor');
+    const savedTextColor = localStorage.getItem('textColor');
+    if (savedBgColor) {
+        document.body.style.backgroundColor = savedBgColor;
+    }
+    if (savedTextColor) {
+        document.body.style.color = savedTextColor;
+        updateLinkColors(savedTextColor);
+    }
+});
+
+// Function to update the color of the links
+function updateLinkColors(color) {
+    const links = document.querySelectorAll('.div-main-content nav a');
+    links.forEach(link => {
+        link.style.color = color;
+    });
+}
+
+    </script>
+</body>
+</html>
